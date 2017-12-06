@@ -33,6 +33,7 @@ gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
 gem 'faker', '~> 1.8.4'
 gem 'jquery-rails'
+gem 'figaro'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
