@@ -35,6 +35,9 @@ gem 'faker', '~> 1.8.4'
 gem 'jquery-rails'
 gem 'figaro'
 gem 'ionicons-rails'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog-aws'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
