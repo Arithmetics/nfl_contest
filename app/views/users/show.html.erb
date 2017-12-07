@@ -1,3 +1,27 @@
-<h1> <%= @user.username %>'s Profile </h1>
+<div class="row">
+  <div class="col-md-4 col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1> <%= @user.username %>'s Profile </h1>
+      </div>
+      <div class="panel-body">
+        <%= image_tag @user.avatar.small.url, class: "img-responsive profile-pic center-block" if @user.avatar? %>
+        <br >
+        <ul class="list-group">
+          <li class="list-group-item"><strong>Real Name:</strong> <%= @user.full_name %> </li>
+          <li class="list-group-item"><strong>Email:</strong> <%= @user.email %> </li>
+          <li class="list-group-item"><strong>Championships:</strong> <%= @user.championships %> </li>
+          <li class="list-group-item"><strong>Last sign in:</strong> <%= @user.last_sign_in_at %> </li>
+          <% if @user.admin %>
+            <li class="list-group-item"><strong>Admin?:</strong> Yes </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-<%= image_tag @user.avatar.medium.url if @user.avatar? %>
+  <div class="col-md-8 col-sm-12">
+
+  </div>
+
+</div>

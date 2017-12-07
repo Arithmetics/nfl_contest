@@ -1,18 +1,28 @@
-<%= bootstrap_devise_error_messages! %>
-<div class="panel panel-default devise-bs">
-  <div class="panel-heading">
-    <h4><%= t('.resend_confirmation_instructions', default: 'Resend confirmation instructions') %></h4>
-  </div>
-  <div class="panel-body">
-    <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, role: 'form' }) do |f| %>
-      <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, class: "form-control"  %>
-      </div>
+<div class="row">
+  <div class="col-md-3">
+ </div>
+  <div class = "col-md-6 col-sm-12">
 
-      <%= f.submit t('.resend_confirmation_instructions', default: 'Resend confirmation instructions'), class: 'btn btn-primary' %>
-    <% end %>
+  <%= bootstrap_devise_error_messages! %>
+  <div class="panel panel-default devise-bs">
+    <div class="panel-heading">
+      <h4><%= t('.resend_confirmation_instructions', default: 'Resend confirmation instructions') %></h4>
+    </div>
+    <div class="panel-body">
+      <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, role: 'form' }) do |f| %>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true, class: "form-control"  %>
+        </div>
+
+        <%= f.submit t('.resend_confirmation_instructions', default: 'Resend confirmation instructions'), class: 'btn btn-dark btn-lg btn-block' %>
+      <% end %>
+    </div>
+  </div>
+
+  <%= render 'devise/shared/links' %>
+
+    </div>
+  <div class="col-md-3">
   </div>
 </div>
-
-<%= render 'devise/shared/links' %>
