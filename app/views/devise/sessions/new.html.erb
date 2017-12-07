@@ -1,3 +1,8 @@
+<div class="row">
+  <div class="col-md-3">
+ </div>
+  <div class = "col-md-6 col-sm-12">
+
 <div class="panel panel-default devise-bs">
   <div class="panel-heading">
     <h4><%= t('.sign_in', default: 'Sign in') %></h4>
@@ -19,8 +24,13 @@
           <% end %>
         </div>
       <% end %>
-      <%= f.submit  t('.sign_in', default: 'Sign in'), class: 'btn btn-primary' %>
+      <%= f.submit  t('.sign_in', default: 'Sign in'), class: "btn btn-dark btn-lg btn-block" %>
     <% end %>
   </div>
 </div>
 <%= render 'devise/shared/links' %>
+
+</div>
+<div class="col-md-3">
+</div>
+</div>
