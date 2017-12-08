@@ -5,4 +5,8 @@ class StaticPagesController < ApplicationController
     @matchups = Matchup.all
   end
 
+  def rules
+
+  end
+
 end

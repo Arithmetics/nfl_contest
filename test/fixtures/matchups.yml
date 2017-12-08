@@ -1,17 +1,22 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  away_team: MyString
-  away_line: 1.5
-  away_detail: MyString
-  home_team: MyString
-  home_line: 1.5
-  home_detail: MyString
 
-two:
-  away_team: MyString
-  away_line: 1.5
-  away_detail: MyString
-  home_team: MyString
-  home_line: 1.5
-  home_detail: MyString
+matchup1:
+  home_team: Team1
+  away_team: Team2
+  home_line: 12.0
+  away_line: -12.0
+  home_detail: (3-3)
+  away_detail: (3-3)
+  home_picture: placeholder.jpg
+  away_picture: placeholder.jpg
+
+matchup3:
+  home_team: Team1
+  away_team: Team2
+  home_line: 3.5
+  away_line: -3.5
+  home_detail: (4-3)
+  away_detail: (3-4)
+  home_picture: placeholder.jpg
+  away_picture: placeholder.jpg

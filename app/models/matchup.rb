@@ -8,4 +8,35 @@ class Matchup < ApplicationRecord
                         :home_picture,
                         :away_picture
 
+  def home_line_style
+    if home_line > -0.5
+      if home_line.to_int == home_line
+        "+#{home_line.round}"
+      else
+      "+#{home_line}"
+      end
+    else
+      if home_line.to_int == home_line
+        "#{home_line.round}"
+      else
+      "#{home_line}"
+      end
+    end
+  end
+
+  def away_line_style
+    if away_line > -0.5
+      if away_line.to_int == away_line
+        "+#{away_line.round}"
+      else
+      "+#{away_line}"
+      end
+    else
+      if away_line.to_int == away_line
+        "#{away_line.round}"
+      else
+      "#{away_line}"
+      end
+    end
+  end
 end

@@ -1,0 +1,29 @@
+
+
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">
+    <h2> Leaderboard </h2>
+  </div>
+
+  <table class="table">
+    <thead>
+      <th>Position</th>
+      <th>Username</th>
+      <th>Score</th>
+      <th>Locks Left</th>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= 1 %> </th>
+          <td><%= link_to user.username, user %></td>
+          <td>0</td>
+          <td><%= user.lock_points %></td>
+        </tr>
+      <% end %>
+    </tbody>
+
+  </table>
+</div>
