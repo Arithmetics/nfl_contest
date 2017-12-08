@@ -10,3 +10,12 @@ brock:
   username: Arithmetics
   email: brock.m.tillotson@gmail.com
   encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+  confirmed_at: <%= Time.now %>
+
+admin:
+    full_name: Admin Man
+    username: Admin
+    email: admin@bt-nfl.com
+    encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+    confirmed_at: <%= Time.now %>
+    admin: true

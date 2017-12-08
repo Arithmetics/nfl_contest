@@ -2,8 +2,8 @@
 
 
 matchup1:
-  home_team: Team1
-  away_team: Team2
+  home_team: Seattle Seahawks
+  away_team: New Orleans Saints
   home_line: 12.0
   away_line: -12.0
   home_detail: (3-3)
@@ -12,8 +12,8 @@ matchup1:
   away_picture: placeholder.jpg
 
 matchup3:
-  home_team: Team1
-  away_team: Team2
+  home_team: Philadelphia Eagles
+  away_team: L.A. Rams
   home_line: 3.5
   away_line: -3.5
   home_detail: (4-3)
