@@ -1,6 +1,99 @@
+
+/* team styles */
+.sea {
+  color: #47fc00;
+  border-color:  #00ff09;
+}
+
+.sea:hover {
+  background: #22ff00;
+}
+
+.phi {
+  color: #BBC2CA;
+  border-color:  #BBC2CA;
+}
+
+.phi:hover {
+  background: #BBC2CA;
+}
+
+.lar {
+  color: #BEA771;
+  border-color:  #BEA771;
+}
+
+.lar:hover {
+  background: #BEA771;
+}
+
+.nos {
+  color: #eae719;
+  border-color:  #00ff09;
+}
+
+.nos:hover {
+  background: #eae719;
+}
+
+
+
+
+.cool-btn {
+  width: 90%;
+  font-family: 'Montserrat', sans-serif;
+  background: transparent;
+  height: 90%;
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  font-size: 13px;
+  border: solid 1px;
+  margin-left: 10px;
+  text-decoration: none;
+
+  -webkit-transition-duration: .5s;
+        transition-duration: .5s;
+}
+  .cool-btn:hover {
+    text-decoration: none;
+    color: black;
+    -webkit-transition-duration: .5s;
+        transition-duration: .5s;
+}
+
+.btns {
+  height: 50%;
+}
+
+.detail-holder {
+  height: 100%;
+  text-align: center;
+}
+
+.right-con {
+  height: 175px;
+}
+
+.row-one {
+  height: 30%;
+}
+
+.row-two {
+  height: 25%;
+}
+
+.row-three {
+  height: 45%;
+}
+
 .profile-pic {
   border-radius: 10px;
 
+}
+
+.matchup {
+  margin-bottom: 30px;
 }
 
 .lock {
@@ -11,6 +104,24 @@
   background: #9e9c9c;
 }
 
+.matchup-title {
+  text-align: left;
+}
+
+.lock-time {
+  text-align: right;
+  padding: 15px;
+}
+
+.row-no-padding {
+  [class*="col-"] {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+
+
 
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
@@ -19,23 +130,23 @@
 
 .card {
   width:100%;
-  height:150px;
+  height:175px;
   overflow: hidden;
   background:transparent;
   margin:auto;
-  margin-top: 20px;
+  margin-bottom: 30px;
   border-radius:10px;
   -webkit-border-radius:10px;
   -moz-border-radius:10px;
   box-shadow: 0px 20px 30px 3px rgba(0, 0, 0, 0.55);
   &_left {
     width:40%;
-    height:150px;
+    height:175px;
     float:left;
     overflow:hidden;
     background:transparent;
     img {
-      height:150px;
+      height:175px;
       min-width: 100%;
       margin-left: 50%;
       transform: translateX(-50%);
@@ -50,7 +161,7 @@
     width:60%;
     float:left;
     background:#000000;
-    height:150px;
+    height:175px;
     border-radius:0 10px 10px 0;
     -webkit-border-radius:0 10px 10px 0;
     -moz-border-radius:0 10px 10px 0;
@@ -58,120 +169,19 @@
     color:white;
     font-family: 'Montserrat', sans-serif;
     font-weight:50;
-    text-align:left;
+    text-align:center;
     font-size:20px;
-    margin:10px 0 0 0;
-    padding:0 0 0 40px;
+    margin:10px 0 8px 0;
+    padding:0 0 0 15px;
     letter-spacing:1px;
    }
-    &__details {
-      ul {
-        list-style-type:none;
-        padding:0 0 0 40px;
-        margin:10px 0 0 0;
-        li {
-          display:inline;
-          color:#e3e3e3;
-          font-family: 'Montserrat', sans-serif;
-          font-weight:400;
-          font-size:14px;
-          padding:0 40px 0 0;
-        }
-      }
-    }
-    &__rating {
-      &__stars {
-        position:relative;
-        right:160px;
-        margin:10px 0 10px 0;
-          fieldset, label { margin: 0; padding: 0; }
-.rating {
-  border: none;
-}
-
-.rating > input { display: none; }
-.rating > label:before {
-  margin: 5px;
-  font-size: 1.25em;
-  display: inline-block;
-  content: "\f005";
-  font-family: FontAwesome;
-}
-
-.rating > .half:before {
-  content: "\f089";
-  position: absolute;
-}
-
-.rating > label {
-  color: #ddd;
-  float:right;
-}
-
-/***** CSS Magic to Highlight Stars on Hover *****/
-
-.rating > input:checked ~ label, /* show gold star when clicked */
-.rating:not(:checked) > label:hover, /* hover current star */
-.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
-
-.rating > input:checked + label:hover, /* hover current star when changing rating */
-.rating > input:checked ~ label:hover,
-.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
-.rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
-      }
-    }
-    &__review {
-      p {
-        color:white;
-        font-family: 'Montserrat', sans-serif;
-        font-size:12px;
-        padding:0 40px 0 40px;
-        letter-spacing:1px;
-        margin:10px 0 10px 0;
-        line-height:20px;
-      }
-      a {
-        text-decoration:none;
-        font-family: 'Montserrat', sans-serif;
-        font-size:14px;
-        padding:0 0 0 40px;
-        color:#ffda00;
-        margin:0;
-      }
-    }
-&__button {
-      a {
-        color:#ffda00;
-        text-decoration:none;
-        font-family: 'Montserrat', sans-serif;
-        border:2px solid #ffda00;
-        padding:10px 10px 10px 40px;
-        font-size:12px;
-        background:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/343086/COMdoWZ.png);
-        background-size:12px 12px;
-        background-repeat:no-repeat;
-            background-position: 7% 50%;
-        border-radius:5px;
-          -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: .5s;
-          transition-duration: .5s;
-      }
-      a:hover {
-            color: #000000;
-  background-color: #ffda00;
-        background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/343086/rFQ5dHA.png);
-          background-size:12px 12px;
-        background-repeat:no-repeat;
-            background-position: 10% 50%;
-  cursor: pointer;
-  -webkit-transition-property: all;
-          transition-property: all;
-  -webkit-transition-duration: .5s;
-          transition-duration: .5s;
-      }
-        padding:0 0 0 40px;
-        margin:30px 0 0 0;
-    }
-}
+  .details {
+    margin-bottom: 0px;
+    text-align: center;
+    vertical-align: middle;
+    color:#e3e3e3;
+    font-family: 'Montserrat', sans-serif;
+    font-weight:400;
+  }
+  }
 }

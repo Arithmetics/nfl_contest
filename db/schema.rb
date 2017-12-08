@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207012307) do
+ActiveRecord::Schema.define(version: 20171207235928) do
+
+  create_table "matchups", force: :cascade do |t|
+    t.string "away_team"
+    t.float "away_line"
+    t.string "away_detail"
+    t.string "home_team"
+    t.float "home_line"
+    t.string "home_detail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "home_picture"
+    t.string "away_picture"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "full_name"

@@ -1,4 +1,69 @@
-<%= render 'matchup' %>
-<%= render 'matchup' %>
-<%= render 'matchup' %>
-<%= render 'matchup' %>
+<% @matchups.each do |matchup| %>
+  <div class="panel panel-default matchup">
+
+    <div class="panel-heading">
+      <div class="row">
+        <div class="col-sm-6">
+          <h3 class="matchup-title">Matchup #<%=matchup.id %></h3>
+        </div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card_left">
+                <img class="" src=<%= matchup.away_picture %>/>
+            </div>
+            <div class="card_right">
+              <div class="container-fluid right-con">
+
+                <div class="row row-no-padding row-one">
+                  <div class="col-xs-12">
+                    <h1><%= matchup.away_team%> <%=matchup.away_line %></h1>
+                  </div>
+                </div>
+                <div class="row row-no-padding row-two">
+                  <div class="col-xs-6 detail-holder">
+                    <p class="details"><%= matchup.away_detail%></p>
+                  </div>
+                  <div class="col-xs-6 detail-holder">
+                    <p class="details">Away</p>
+                  </div>
+                </div>
+                <%= render "#{matchup.away_team}_buttons" %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card_left">
+                <img class="" src=<%= matchup.home_picture %>/>
+            </div>
+            <div class="card_right">
+              <div class="container-fluid right-con">
+
+                <div class="row row-no-padding row-one">
+                  <div class="col-xs-12">
+                    <h1><%= matchup.home_team%> <%=matchup.home_line %></h1>
+                  </div>
+                </div>
+                <div class="row row-no-padding row-two">
+                  <div class="col-xs-6 detail-holder">
+                    <p class="details"><%= matchup.home_detail %></p>
+                  </div>
+
+                  <div class="col-xs-6 detail-holder">
+                    <p class="details">Home</p>
+                  </div>
+                </div>
+                <%= render "#{matchup.home_team}_buttons" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

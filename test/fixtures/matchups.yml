@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  away_team: MyString
+  away_line: 1.5
+  away_detail: MyString
+  home_team: MyString
+  home_line: 1.5
+  home_detail: MyString
+
+two:
+  away_team: MyString
+  away_line: 1.5
+  away_detail: MyString
+  home_team: MyString
+  home_line: 1.5
+  home_detail: MyString
