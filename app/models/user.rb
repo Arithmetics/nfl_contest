@@ -7,6 +7,8 @@ class User < ApplicationRecord
   validates :username, uniqueness: true, presence: true
   validates :full_name, presence: true
   validate :avatar_size
+  has_many :picks
+  has_many :matchups, through: :picks
 
   after_update :crop_avatar
 
@@ -15,6 +17,14 @@ class User < ApplicationRecord
 
   def crop_avatar
     avatar.recreate_versions! if crop_x.present?
+  end
+
+  def picked_matchup?(matchup)
+    if self.matchups.find_by_id(matchup.id)
+      true
+    else
+      false
+    end
   end
 
   private #######################################

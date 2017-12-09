@@ -1,8 +1,10 @@
 <div class="row row-no-padding row-three">
   <div class="col-sm-6 btns">
-      <button class="cool-btn lar">
-        Pick
-      </button>
+     <%= link_to picks_path(pick: {matchup_id: 1, lock: false, choice: "home"}), method: :post do %>
+        <button class="cool-btn lar">
+          Pick
+        </button>
+      <% end %>
   </div>
   <div class="col-sm-6 btns">
     <button class="cool-btn lar">

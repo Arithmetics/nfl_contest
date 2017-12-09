@@ -7,6 +7,8 @@ class Matchup < ApplicationRecord
                         :away_detail,
                         :home_picture,
                         :away_picture
+  has_many :picks
+  has_many :users, through: :picks
 
   def home_line_style
     if home_line > -0.5
@@ -39,4 +41,7 @@ class Matchup < ApplicationRecord
       end
     end
   end
+
+  
+
 end

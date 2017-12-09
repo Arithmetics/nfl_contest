@@ -1,0 +1,8 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+
+pick1:
+  user_id: 1
+  matchup_id: 1
+  lock: false
+  choice: away

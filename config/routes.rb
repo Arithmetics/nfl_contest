@@ -7,5 +7,6 @@ Rails.application.routes.draw do
    get "/rules", to: "static_pages#rules", as: "rulels"
   resources :users
   resources :matchups
+  resources :picks
 
 end

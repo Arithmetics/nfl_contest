@@ -2,7 +2,34 @@
   <h1>Open Bets <small>Choose wisely</small></h1>
 </div>
 
+<!-- Status Readers-->
+<div class="col-md-8 col-sm-12">
+  <div class="row status-board">
+
+    <div class="col-md-4 col-sm-12">
+      <li class="list-group-item">
+        Points Scored: <span class="badge">10</span>
+      </li>
+    </div>
+    <div class="col-md-4 col-sm-12">
+      <li class="list-group-item">
+        Unpicked Games: <span class="badge">4</span>
+      </li>
+    </div>
+    <div class="col-md-4 col-sm-12">
+      <li class="list-group-item">
+        Locks Remaining: <span class="badge">
+          <%= current_user.lock_points %>
+        </span>
+      </li>
+    </div>
+  </div>
+</div>
+
+
+
 <% @matchups.each do |matchup| %>
+  <% unless current_user.picked_matchup?(matchup) %>
   <div class="panel panel-default matchup">
 
     <div class="panel-heading">
@@ -35,7 +62,32 @@
                     <p class="details">Away</p>
                   </div>
                 </div>
-                <%= render "#{matchup.away_team}_buttons" %>
+
+
+
+
+                <div class="row row-no-padding row-three">
+                  <div class="col-sm-6 btns">
+                     <%= link_to picks_path(pick: {matchup_id: matchup.id, lock: false, choice: "away"}), method: :post do %>
+                        <button class="cool-btn">
+                          Pick
+                        </button>
+                      <% end %>
+                  </div>
+                  <div class="col-sm-6 btns">
+                    <%= link_to picks_path(pick: {matchup_id: matchup.id, lock: true, choice: "away"}), method: :post do %>
+                       <button class="cool-btn">
+                         Lock Pick
+                       </button>
+                     <% end %>
+                  </div>
+                </div>
+
+
+
+
+
+
               </div>
             </div>
           </div>
@@ -62,7 +114,30 @@
                     <p class="details">Home</p>
                   </div>
                 </div>
-                <%= render "#{matchup.home_team}_buttons" %>
+
+
+                <div class="row row-no-padding row-three">
+                  <div class="col-sm-6 btns">
+                     <%= link_to picks_path(pick: {matchup_id: matchup.id, lock: false, choice: "home"}), method: :post do %>
+                        <button class="cool-btn">
+                          Pick
+                        </button>
+                      <% end %>
+                  </div>
+                  <div class="col-sm-6 btns">
+                    <%= link_to picks_path(pick: {matchup_id: matchup.id, lock: true, choice: "home"}), method: :post do %>
+                       <button class="cool-btn">
+                         Lock Pick
+                       </button>
+                     <% end %>
+                  </div>
+                </div>
+
+
+
+
+
+
               </div>
             </div>
           </div>
@@ -70,4 +145,5 @@
       </div>
     </div>
   </div>
+  <% end %>
 <% end %>

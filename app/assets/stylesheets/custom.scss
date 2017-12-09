@@ -36,7 +36,38 @@
   background: #eae719;
 }
 
+.delete-pick {
+  color: #ff0000;
+  border-color:  #ff0000;
+}
 
+.delete-pick:hover {
+  background: #ff0000;
+}
+
+
+.cool-div {
+  width: 90%;
+  font-family: 'Montserrat', sans-serif;
+  background: transparent;
+  height: 90%;
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  font-size: 15px;
+  vertical-align: bottom;
+  margin-left: 10px;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+
+  -webkit-transition-duration: .5s;
+        transition-duration: .5s;
+}
+
+.status {
+  padding-top: 7px;
+  vertical-align: bottom;
+}
 
 .cool-btn {
   width: 90%;
@@ -63,6 +94,10 @@
 
 .btns {
   height: 50%;
+}
+
+.on-top {
+  z-index: 99;
 }
 
 .detail-holder {
@@ -119,11 +154,26 @@
   }
 }
 
+.status-board {
+
+  margin: 30px;
+}
+
+.cool-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+
+}
+
+.inline {
+  display: inline-block;
+}
 
 
 
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
 
 
 
@@ -144,6 +194,15 @@
     float:left;
     overflow:hidden;
     background:transparent;
+
+     .glyphicon {
+        position: absolute;
+        top: 0px;
+        left: 25px;
+        font-size: 64px;
+        color: white;
+        z-index: 99;
+    }
     img {
       height:175px;
       min-width: 100%;

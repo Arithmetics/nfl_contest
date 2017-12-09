@@ -7,6 +7,8 @@ class UserTest < ActiveSupport::TestCase
 
   def setup
     @user = users(:brock)
+    @matchup = matchups(:matchup1)
+    @matchup2 = matchups(:matchup3)
   end
 
   test "user is valid" do
@@ -29,6 +31,16 @@ class UserTest < ActiveSupport::TestCase
                       password: "password",
                       password_confirmation: "password")
     refute @user2.valid?
+  end
+
+  test "picked_matchups should return true and false" do
+    @pick = @user.picks.build(matchup: @matchup,
+                              lock: false,
+                              choice: "home")
+    @pick.save
+    assert @pick.valid?
+    assert @user.picked_matchup?(@matchup)
+    refute @user.picked_matchup?(@matchup2)
   end
 
 end
