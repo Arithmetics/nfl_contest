@@ -20,4 +20,16 @@ class PickTest < ActiveSupport::TestCase
                               choice: "otdher")
     refute @pick2.valid?
   end
+
+  test "same user can't pick same matchup twice" do
+    @pick = @user.picks.create(matchup: @matchup,
+                              lock: false,
+                              choice: "home")
+    assert @user.picks.count == 1
+    @pick2 = @user.picks.create(matchup: @matchup,
+                              lock: true,
+                              choice: "away")
+    assert @user.picks.count == 1
+  end
+
 end

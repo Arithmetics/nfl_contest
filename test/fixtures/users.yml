@@ -11,6 +11,7 @@ brock:
   email: brock.m.tillotson@gmail.com
   encrypted_password: <%= User.new.send(:password_digest, 'password') %>
   confirmed_at: <%= Time.now %>
+  lock_points: 5
 
 admin:
     full_name: Admin Man
@@ -19,3 +20,12 @@ admin:
     encrypted_password: <%= User.new.send(:password_digest, 'password') %>
     confirmed_at: <%= Time.now %>
     admin: true
+    lock_points: 5
+
+dan:
+  full_name: Dan D
+  username: TheDan
+  email: dan@gmail.com
+  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+  confirmed_at: <%= Time.now %>
+  lock_points: 0

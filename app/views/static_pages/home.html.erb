@@ -1,32 +1,33 @@
+<!-- Status Readers-->
+
+
 <div class="page-header">
   <h1>Open Bets <small>Choose wisely</small></h1>
-</div>
+  <div class="row">
+    <div class="col-md-8 col-sm-12">
+      <div class="row status-board">
 
-<!-- Status Readers-->
-<div class="col-md-8 col-sm-12">
-  <div class="row status-board">
-
-    <div class="col-md-4 col-sm-12">
-      <li class="list-group-item">
-        Points Scored: <span class="badge">10</span>
-      </li>
-    </div>
-    <div class="col-md-4 col-sm-12">
-      <li class="list-group-item">
-        Unpicked Games: <span class="badge">4</span>
-      </li>
-    </div>
-    <div class="col-md-4 col-sm-12">
-      <li class="list-group-item">
-        Locks Remaining: <span class="badge">
-          <%= current_user.lock_points %>
-        </span>
-      </li>
+        <div class="col-md-4 col-sm-12">
+          <li class="list-group-item">
+            Points Scored: <span class="badge">10</span>
+          </li>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <li class="list-group-item">
+            Unpicked Games: <span class="badge">4</span>
+          </li>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <li class="list-group-item">
+            Locks Remaining: <span class="badge">
+              <%= current_user.lock_points %>
+            </span>
+          </li>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-
-
 
 <% @matchups.each do |matchup| %>
   <% unless current_user.picked_matchup?(matchup) %>

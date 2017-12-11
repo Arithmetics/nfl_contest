@@ -1,7 +1,7 @@
 class PicksController < ApplicationController
   before_action :enough_locks?, only: :create
   before_action :correct_user, only: :destroy
-  before_action :regain_lock, only: :delete
+  before_action :regain_lock, only: :destroy
 
 
   def create
@@ -41,7 +41,7 @@ class PicksController < ApplicationController
 
   def enough_locks?
     @pick = current_user.picks.build(picks_params)
-    if @pick.lock = true
+    if @pick.lock == true
       unless current_user.lock_points > 0
         flash[:danger] = "You are out of locks!"
         redirect_to root_url

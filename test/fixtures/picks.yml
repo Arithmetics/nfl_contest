@@ -6,3 +6,9 @@ pick1:
   matchup_id: 1
   lock: false
   choice: away
+
+pick2:
+  user_id: 1
+  matchup_id: 1
+  lock: false
+  choice: away
