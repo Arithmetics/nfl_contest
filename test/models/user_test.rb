@@ -43,4 +43,13 @@ class UserTest < ActiveSupport::TestCase
     refute @user.picked_matchup?(@matchup2)
   end
 
+
+  test "correct number of unpicked games display" do
+    assert_equal @user.unpicked_games, 4
+    @pick = @user.picks.create(matchup: @matchup,
+                              lock: false,
+                              choice: "home")
+    assert_equal @user.unpicked_games, 3                     
+  end
+
 end

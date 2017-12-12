@@ -35,14 +35,14 @@ class MatchupsController < ApplicationController
   def destroy
     Matchup.find(params[:id]).destroy
     flash[:success] = "Matchup deleted"
-    redirect_to root_url
+    redirect_to request.referrer || root_url
   end
 
 
 
 
 
-  private #############################3
+  private #############################
 
   def matchup_params
     params.require(:matchup).permit(:title,:home_team,:away_team,:home_line,:away_line,

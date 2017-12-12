@@ -1,7 +1,9 @@
 class PicksController < ApplicationController
-  before_action :enough_locks?, only: :create
+  before_action :check_if_matchup_closed, :enough_locks?,  only: :create
   before_action :correct_user, only: :destroy
+  before_action :check_if_pick_closed, only: :destroy
   before_action :regain_lock, only: :destroy
+
 
 
   def create
@@ -32,6 +34,22 @@ class PicksController < ApplicationController
     redirect_to root_url if @pick.nil?
   end
 
+  def check_if_pick_closed
+    if @pick.closed?
+      flash[:danger] = "The game has started, cannot delete pick!"
+      redirect_to request.referrer || root_url
+    end
+  end
+
+  def check_if_matchup_closed
+    @pick = current_user.picks.build(picks_params)
+    if @pick.matchup.closed?
+      flash[:danger] = "The game has started, cannot make the pick!"
+      redirect_to root_url
+      return nil
+    end
+  end
+
   def regain_lock
     if @pick.lock
       points = ((current_user.lock_points) + 1)
@@ -40,14 +58,15 @@ class PicksController < ApplicationController
   end
 
   def enough_locks?
-    @pick = current_user.picks.build(picks_params)
-    if @pick.lock == true
-      unless current_user.lock_points > 0
-        flash[:danger] = "You are out of locks!"
-        redirect_to root_url
-      else
-        points = ((current_user.lock_points) - 1)
-        current_user.update_attribute(:lock_points, points)
+    if @pick
+      if @pick.lock == true
+        unless current_user.lock_points > 0
+          flash[:danger] = "You are out of locks!"
+          redirect_to root_url
+        else
+          points = ((current_user.lock_points) - 1)
+          current_user.update_attribute(:lock_points, points)
+        end
       end
     end
   end

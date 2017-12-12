@@ -36,3 +36,15 @@ matchup4:
   home_picture: placeholder.jpg
   away_picture: placeholder.jpg
   closing_time: <%= 4.days.from_now %>
+
+matchup5:
+  title: Wildcard 5
+  home_team: Dinkers
+  away_team: Goobers
+  home_line: 15
+  away_line: -15
+  home_detail: (3-2)
+  away_detail: (1-3)
+  home_picture: placeholder.jpg
+  away_picture: placeholder.jpg
+  closing_time: <%= 4.hours.ago %>

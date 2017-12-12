@@ -11,6 +11,7 @@ class PicksControllerTest < ActionDispatch::IntegrationTest
     @dan = users(:dan)
     @matchup1 = matchups(:matchup1)
     @matchup2 = matchups(:matchup3)
+    @matchup3 = matchups(:matchup5)
   end
 
   test "only correct user can delete pick" do
@@ -92,6 +93,31 @@ class PicksControllerTest < ActionDispatch::IntegrationTest
                                         lock: false
                                                                 } }
     end
+  end
+
+
+  test "user cannot delete closed pick" do
+    sign_in @user
+    @pick1 = @user.picks.create(matchup: @matchup3, lock: true, choice: "home")
+    assert_equal @user.lock_points, 5
+    assert_no_difference 'Pick.count' do
+      delete pick_path(@pick1)
+    end
+    assert_equal @user.lock_points, 5
+  end
+
+
+  test "user cannot create a pick from a closed matchup" do
+    sign_in @user
+    assert @user.lock_points == 5
+    assert_no_difference 'Pick.count' do
+      post picks_path, params: { pick: {
+                                        matchup_id: @matchup3.id,
+                                        choice: "home",
+                                        lock: true
+                                                                } }
+    end
+    assert @user.lock_points == 5
   end
 
 end

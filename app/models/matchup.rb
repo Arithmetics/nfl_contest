@@ -7,9 +7,20 @@ class Matchup < ApplicationRecord
                         :away_detail,
                         :home_picture,
                         :away_picture
-  has_many :picks
+  has_many :picks, dependent: :destroy
   has_many :users, through: :picks
 
+  def self.open?
+    self.all.select {|matchup| matchup.closed? == false }
+  end
+
+  def closed?
+    if self.closing_time < Time.now
+      true
+    else
+      false
+    end
+  end
 
   def home_line_style
     if home_line > -0.5

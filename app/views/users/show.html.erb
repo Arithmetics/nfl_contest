@@ -23,29 +23,8 @@
   </div>
 
   <!-- Status Readers-->
-  <div class="col-md-8 col-sm-12">
-    <div class="row status-board">
-
-      <div class="col-md-4 col-sm-12">
-        <li class="list-group-item">
-          Points Scored: <span class="badge">10</span>
-        </li>
-      </div>
-      <div class="col-md-4 col-sm-12">
-        <li class="list-group-item">
-          Unpicked Games: <span class="badge">4</span>
-        </li>
-      </div>
-      <div class="col-md-4 col-sm-12">
-        <li class="list-group-item">
-          Locks Remaining: <span class="badge">
-            <%= current_user.lock_points %>
-          </span>
-        </li>
-      </div>
-    </div>
-  </div>
-
+  <%= render 'status_board' %>
+  
   <!-- Pick Cards -->
   <div class="col-md-8 col-sm-12">
     <% @picks.each do |pick| %>
