@@ -34,4 +34,5 @@ class MatchupTest < ActiveSupport::TestCase
     assert_equal @matchup3.away_line_style, "-3.5"
   end
 
+
 end

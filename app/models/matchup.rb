@@ -42,6 +42,9 @@ class Matchup < ApplicationRecord
     end
   end
 
-  
+  def pacific_time_display
+    self.closing_time.in_time_zone("Tijuana").strftime("%A %m/%d/%Y %I:%M %p")
+  end
+
 
 end

@@ -2,6 +2,7 @@
 
 
 matchup1:
+  title: Wildcard 1
   home_team: Seattle Seahawks
   away_team: New Orleans Saints
   home_line: 12.0
@@ -10,8 +11,10 @@ matchup1:
   away_detail: (3-3)
   home_picture: placeholder.jpg
   away_picture: placeholder.jpg
+  closing_time: <%= 2.days.from_now %>
 
 matchup3:
+  title: Wildcard 2
   home_team: Philadelphia Eagles
   away_team: L.A. Rams
   home_line: 3.5
@@ -20,8 +23,10 @@ matchup3:
   away_detail: (3-4)
   home_picture: placeholder.jpg
   away_picture: placeholder.jpg
+  closing_time: <%= 3.days.from_now %>
 
 matchup4:
+  title: Wildcard 3
   home_team: Dinkers
   away_team: Goobers
   home_line: 15
@@ -30,3 +35,4 @@ matchup4:
   away_detail: (1-3)
   home_picture: placeholder.jpg
   away_picture: placeholder.jpg
+  closing_time: <%= 4.days.from_now %>

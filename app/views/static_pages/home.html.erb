@@ -36,7 +36,12 @@
     <div class="panel-heading">
       <div class="row">
         <div class="col-sm-6">
-          <h3 class="matchup-title">Matchup #<%=matchup.id %></h3>
+          <h3 class="matchup-title">
+            <%= matchup.title %>
+          </h3>
+          <h5>
+            Closes: <%=matchup.pacific_time_display%>
+          </h5>
         </div>
       </div>
     </div>

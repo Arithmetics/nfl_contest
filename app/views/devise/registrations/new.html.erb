@@ -38,10 +38,6 @@
             <%= f.password_field :password_confirmation, class: 'form-control' %>
           </div>
 
-          <div class="form-group">
-            <%= f.label :profile_picture %>
-            <%= f.file_field :avatar, accept: 'image/jpeg, image/gig, image/png'  %>
-          </div>
           <h4> You will recieve a confirmation email after account creation </h4>
           <%= f.submit t('.sign_up', default: 'Sign up'), class: "btn btn-dark btn-lg btn-block" %>
 

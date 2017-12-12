@@ -45,8 +45,9 @@ class MatchupsController < ApplicationController
   private #############################3
 
   def matchup_params
-    params.require(:matchup).permit(:home_team,:away_team,:home_line,:away_line,
-                                    :home_detail,:away_detail,:home_picture,:away_picture)
+    params.require(:matchup).permit(:title,:home_team,:away_team,:home_line,:away_line,
+                                    :home_detail,:away_detail,:home_picture,
+                                    :away_picture,:closing_time)
   end
 
   def admin_user
