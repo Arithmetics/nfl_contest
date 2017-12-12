@@ -10,6 +10,7 @@ class Matchup < ApplicationRecord
   has_many :picks
   has_many :users, through: :picks
 
+
   def home_line_style
     if home_line > -0.5
       if home_line.to_int == home_line

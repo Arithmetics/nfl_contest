@@ -76,16 +76,24 @@
                   </div>
                   <div class="row row-no-padding row-three">
                     <div class="col-sm-6 btns">
-                       <%= link_to pick, method: :delete do %>
+                      <% unless pick.closed? %>
+                        <%= link_to pick, method: :delete do %>
                           <button class="delete-pick  cool-btn">
                             Delete Pick
                           </button>
                         <% end %>
+                      <% else %>
+                        <div class="cool-div">
+                          <div class="status">
+                            <%= pick.result %>
+                          </div>
+                        </div>
+                      <% end %>
                     </div>
                     <div class="col-sm-6 btns">
                          <div class="cool-div">
                            <div class="status">
-                             Pick is: <%=pick.status%>
+                             <h6>Pick is: <%=pick.status%></h6>
                            </div>
                          </div>
                     </div>
@@ -122,16 +130,18 @@
                   </div>
                   <div class="row row-no-padding row-three">
                     <div class="col-sm-6 btns">
-                       <%= link_to pick, method: :delete do %>
-                          <button class="delete-pick cool-btn">
-                            Delete Pick
-                          </button>
-                        <% end %>
+                      <% unless pick.closed? %>
+                         <%= link_to pick, method: :delete do %>
+                            <button class="delete-pick cool-btn">
+                              Delete Pick
+                            </button>
+                          <% end %>
+                      <% end %>
                     </div>
                     <div class="col-sm-6 btns">
                          <div class="cool-div">
                            <div class="status">
-                             Pick is: <%=pick.status%>
+                             <h6>Pick is: <%=pick.status%></h6>
                            </div>
                          </div>
                     </div>

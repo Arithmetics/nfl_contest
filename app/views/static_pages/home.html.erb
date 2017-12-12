@@ -1,12 +1,11 @@
-<!-- Status Readers-->
-
-
+<!-- Page Header -->
 <div class="page-header">
   <h1>Open Bets <small>Choose wisely</small></h1>
   <div class="row">
     <div class="col-md-8 col-sm-12">
       <div class="row status-board">
 
+        <!-- Status Readers-->
         <div class="col-md-4 col-sm-12">
           <li class="list-group-item">
             Points Scored: <span class="badge">10</span>
@@ -24,6 +23,7 @@
             </span>
           </li>
         </div>
+
       </div>
     </div>
   </div>
@@ -33,6 +33,7 @@
   <% unless current_user.picked_matchup?(matchup) %>
   <div class="panel panel-default matchup">
 
+    <!-- Title and closing time -->
     <div class="panel-heading">
       <div class="row">
         <div class="col-sm-6">
@@ -48,6 +49,8 @@
     <div class="panel-body">
       <div class="row">
         <div class="col-md-6">
+
+          <!-- Left Card -->
           <div class="card">
             <div class="card_left">
                 <img class="" src=<%= matchup.away_picture %>/>
@@ -69,9 +72,7 @@
                   </div>
                 </div>
 
-
-
-
+                <!-- Pick Buttons -->
                 <div class="row row-no-padding row-three">
                   <div class="col-sm-6 btns">
                      <%= link_to picks_path(pick: {matchup_id: matchup.id, lock: false, choice: "away"}), method: :post do %>
@@ -89,16 +90,13 @@
                   </div>
                 </div>
 
-
-
-
-
-
               </div>
             </div>
           </div>
         </div>
         <div class="col-md-6">
+
+          <!-- Right Card -->
           <div class="card">
             <div class="card_left">
                 <img class="" src=<%= matchup.home_picture %>/>
@@ -121,7 +119,7 @@
                   </div>
                 </div>
 
-
+                <!-- Pick Buttons -->
                 <div class="row row-no-padding row-three">
                   <div class="col-sm-6 btns">
                      <%= link_to picks_path(pick: {matchup_id: matchup.id, lock: false, choice: "home"}), method: :post do %>
@@ -139,16 +137,33 @@
                   </div>
                 </div>
 
-
-
-
-
-
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Matchup editer, admin only -->
+      <% if current_user.admin %>
+        <div class="row">
+          <div class="col-md-6">
+            <%= link_to edit_matchup_path(matchup) do %>
+               <button class="edit-btn  cool-btn">
+                 Edit Matchup
+               </button>
+             <% end %>
+           </div>
+           <div class="col-md-6">
+            <%= link_to matchup, method: :delete do %>
+               <button class="edit-btn  cool-btn">
+               Delete Matchup
+               </button>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
+
     </div>
   </div>
   <% end %>

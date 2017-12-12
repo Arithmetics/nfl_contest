@@ -27,6 +27,18 @@ class User < ApplicationRecord
     end
   end
 
+  def unpicked_games
+    x = 0
+    Matchup.all.each do |matchup|
+      if self.picks.find_by(matchup_id: matchup.id)
+        x += 0
+      else
+        x += 1
+      end
+    end
+    x
+  end
+
   private #######################################
 
   def avatar_size
