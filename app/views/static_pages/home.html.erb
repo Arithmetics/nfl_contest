@@ -65,14 +65,14 @@
                 <div class="row row-no-padding row-three">
                   <div class="col-sm-6 btns">
                      <%= link_to picks_path(pick: {matchup_id: matchup.id, lock: false, choice: "away"}), method: :post do %>
-                        <button class="cool-btn">
+                        <button class= 'cool-btn <%= "#{matchup.away_team_class}" %>' >
                           Pick
                         </button>
                       <% end %>
                   </div>
                   <div class="col-sm-6 btns">
                     <%= link_to picks_path(pick: {matchup_id: matchup.id, lock: true, choice: "away"}), method: :post do %>
-                       <button class="cool-btn">
+                       <button class= 'cool-btn <%= "#{matchup.away_team_class}" %>'>
                          Lock Pick
                        </button>
                      <% end %>
@@ -112,14 +112,14 @@
                 <div class="row row-no-padding row-three">
                   <div class="col-sm-6 btns">
                      <%= link_to picks_path(pick: {matchup_id: matchup.id, lock: false, choice: "home"}), method: :post do %>
-                        <button class="cool-btn">
+                        <button class= 'cool-btn <%= "#{matchup.home_team_class}" %>'>
                           Pick
                         </button>
                       <% end %>
                   </div>
                   <div class="col-sm-6 btns">
                     <%= link_to picks_path(pick: {matchup_id: matchup.id, lock: true, choice: "home"}), method: :post do %>
-                       <button class="cool-btn">
+                       <button class= 'cool-btn <%= "#{matchup.home_team_class}" %>'>
                          Lock Pick
                        </button>
                      <% end %>
@@ -131,8 +131,8 @@
           </div>
         </div>
       </div>
-
-      <!-- Matchup editer, admin only -->
+<!-- crossing out for now
+      Matchup editer, admin only
       <% if current_user.admin %>
         <div class="row">
           <div class="col-md-6">
@@ -151,7 +151,7 @@
           </div>
         </div>
       <% end %>
-
+-->
 
     </div>
   </div>

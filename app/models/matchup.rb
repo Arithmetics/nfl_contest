@@ -22,6 +22,14 @@ class Matchup < ApplicationRecord
     end
   end
 
+  def home_team_class
+    "#{self.home_team.gsub(" ","").downcase}"
+  end
+
+  def away_team_class
+    "#{self.away_team.gsub(" ","").downcase}"
+  end
+
   def home_line_style
     if home_line > -0.5
       if home_line.to_int == home_line
@@ -56,6 +64,14 @@ class Matchup < ApplicationRecord
 
   def pacific_time_display
     self.closing_time.in_time_zone("Tijuana").strftime("%A %m/%d/%Y %I:%M %p")
+  end
+
+  def home_logo_element
+    "#{self.home_team.downcase.gsub(" ", "-")}-logo-vector.png"
+  end
+
+  def away_logo_element
+    "#{self.away_team.downcase.gsub(" ", "-")}-logo-vector.png"
   end
 
 

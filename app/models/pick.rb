@@ -27,4 +27,12 @@ class Pick < ApplicationRecord
     "Pending result"
   end
 
+  def pick_logo
+    if self.choice == "away"
+      self.matchup.away_logo_element
+    else
+      self.matchup.home_logo_element
+    end
+  end
+
 end

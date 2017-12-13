@@ -24,7 +24,7 @@
 
   <!-- Status Readers-->
   <%= render 'status_board' %>
-  
+
   <!-- Pick Cards -->
   <div class="col-md-8 col-sm-12">
     <% @picks.each do |pick| %>
@@ -72,7 +72,7 @@
                     <div class="col-sm-6 btns">
                          <div class="cool-div">
                            <div class="status">
-                             <h6>Pick is: <%=pick.status%></h6>
+                             <p class="pick-status">Pick is: <%=pick.status%></p>
                            </div>
                          </div>
                     </div>
@@ -120,7 +120,7 @@
                     <div class="col-sm-6 btns">
                          <div class="cool-div">
                            <div class="status">
-                             <h6>Pick is: <%=pick.status%></h6>
+                             <p class="pick-status">Pick is: <%=pick.status%></p>
                            </div>
                          </div>
                     </div>

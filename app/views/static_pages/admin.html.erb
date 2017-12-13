@@ -1,83 +1,112 @@
-<h1>Admin Dash</h1>
-<ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#home">Matchups</a></li>
-  <li><a data-toggle="tab" href="#menu1">Users</a></li>
-  <li><a data-toggle="tab" href="#menu2">Picks</a></li>
-</ul>
+<div class="row">
+  <div class="col-xs-12">
+    <h1>Admin Dash</h1>
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#home">Matchups</a></li>
+      <li><a data-toggle="tab" href="#menu1">Users</a></li>
+      <li><a data-toggle="tab" href="#menu2">Picks</a></li>
+    </ul>
 
-<div class="tab-content">
-  <div id="home" class="tab-pane fade in active">
-    <h3>All Matchups</h3>
+    <div class="tab-content">
+      <div id="home" class="tab-pane fade in active">
+        <h3>All Matchups</h3>
 
-    <table class="table">
-      <thead>
-        <th>ID</th>
-        <th>Title</th>
-        <th>Away Team</th>
-        <th>Away Line</th>
-        <th>Away Detail</th>
-        <th>Home Team</th>
-        <th>Home Line</th>
-        <th>Home Detail</th>
-        <th>Closed?</th>
-        <th>Closing Time</th>
-        <th>Edit</th>
-        <th>Delete</th>
-      </thead>
-      <tbody>
-        <% @matchups.each do |matchup| %>
-          <tr>
-            <td><%= matchup.id %></td>
-            <td><%= matchup.title %></td>
-            <td><%= matchup.away_team %></td>
-            <td><%= matchup.away_line %></td>
-            <td><%= matchup.away_detail %></td>
-            <td><%= matchup.home_team %></td>
-            <td><%= matchup.home_line %></td>
-            <td><%= matchup.home_detail %></td>
-            <td><%= matchup.closed? %></td>
-            <td><%= matchup.pacific_time_display %></td>
-            <td><%= link_to 'Edit', edit_matchup_path(matchup)%></td>
-            <td><%= link_to 'Delete', matchup, method: :delete %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+        <table class="table">
+          <thead>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Away Team</th>
+            <th>Away Line</th>
+            <th>Away Detail</th>
+            <th>Home Team</th>
+            <th>Home Line</th>
+            <th>Home Detail</th>
+            <th>Closed?</th>
+            <th>Closing Time</th>
+            <th>Result</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </thead>
+          <tbody>
+            <% @matchups.each do |matchup| %>
+              <tr>
+                <td><%= matchup.id %></td>
+                <td><%= matchup.title %></td>
+                <td><%= image_tag(matchup.away_logo_element, class: "small-logo")%></td>
+                <td><%= matchup.away_line %></td>
+                <td><%= matchup.away_detail %></td>
+                <td><%= image_tag(matchup.home_logo_element, class: "small-logo")%></td>
+                <td><%= matchup.home_line %></td>
+                <td><%= matchup.home_detail %></td>
+                <td><%= matchup.closed? %></td>
+                <td><%= matchup.pacific_time_display %></td>
+                <td>Pending</td>
+                <td><%= link_to 'Edit', edit_matchup_path(matchup)%></td>
+                <td><%= link_to 'Delete', matchup, method: :delete %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= link_to "New Matchup", new_matchup_path %>
+      </div>
 
-  </div>
+      <div id="menu1" class="tab-pane fade">
+        <h3>All Users</h3>
 
-  <div id="menu1" class="tab-pane fade">
-    <h3>All Users</h3>
+        <table class="table">
+          <thead>
+            <th>ID</th>
+            <th>Real Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Lock Points</th>
+            <th>Points Scored</th>
+            <th>Unpicked Games</th>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= user.id %></td>
+                <td><%= user.full_name %></th>
+                <td><%= link_to user.username, user %></td>
+                <td><%= user.email %></td>
+                <td><%= user.lock_points %></td>
+                <td>0</td>
+                <td><%= user.unpicked_games %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
 
-    <table class="table">
-      <thead>
-        <th>ID</th>
-        <th>Real Name</th>
-        <th>Username</th>
-        <th>Email</th>
-        <th>Lock Points</th>
-        <th>Points Scored</th>
-        <th>Unpicked Games</th>
-      </thead>
-      <tbody>
-        <% @users.each do |user| %>
-          <tr>
-            <td><%= user.id %></td>
-            <td><%= user.full_name %></th>
-            <td><%= link_to user.username, user %></td>
-            <td><%= user.email %></td>
-            <td><%= user.lock_points %></td>
-            <td>0</td>
-            <td><%= user.unpicked_games %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+      </div>
 
-  </div>
+      <div id="menu2" class="tab-pane fade">
+        <h3>All Picks</h3>
 
-  <div id="menu2" class="tab-pane fade">
-    <h3>All Picks</h3>
-    <p>Some content in menu 2.</p>
+        <table class="table">
+          <thead>
+            <th>ID</th>
+            <th>Matchup Title</th>
+            <th>Username</th>
+            <th>Lock</th>
+            <th>Choice</th>
+            <th>Result</th>
+          </thead>
+          <tbody>
+            <% @picks.each do |pick| %>
+              <tr>
+                <td><%= pick.id %></td>
+                <td><%= pick.matchup.title %></th>
+                <td><%= pick.user.username %></td>
+                <td><%= pick.lock %></td>
+                <td><%= image_tag(pick.pick_logo, class: "small-logo")%></td>
+                <td>Pending</td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
   </div>
 </div>
