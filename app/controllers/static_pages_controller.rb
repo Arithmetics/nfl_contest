@@ -20,6 +20,10 @@ class StaticPagesController < ApplicationController
     @picks = Pick.order("#{sort_column} #{sort_direction}")
   end
 
+  def history
+
+  end
+
   private ##################################################3
 
   def admin_user
