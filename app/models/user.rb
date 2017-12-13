@@ -15,6 +15,16 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
 
+  def self.top_score
+    top = 0
+    self.all.each do |user|
+      if user.score > top
+        top = user.score
+      end
+    end
+    top
+  end
+
   def crop_avatar
     avatar.recreate_versions! if crop_x.present?
   end
@@ -37,6 +47,20 @@ class User < ApplicationRecord
       end
     end
     x
+  end
+
+  def score
+    score = 0
+    self.picks.each do |pick|
+      if pick.win?
+        if pick.lock
+          score += 2
+        else
+          score += 1
+        end
+      end
+    end
+    score
   end
 
   private #######################################

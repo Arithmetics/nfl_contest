@@ -15,13 +15,15 @@
       <th>Locks Left</th>
     </thead>
     <tbody>
+      <% x = 1 %>
       <% @users.each do |user| %>
         <tr>
-          <td><%= 1 %> </th>
+          <td><%= x %> </th>
           <td><%= link_to user.username, user %></td>
-          <td>0</td>
+          <td><%= user.score %></td>
           <td><%= user.lock_points %></td>
         </tr>
+        <% x += 1 %>
       <% end %>
     </tbody>
 

@@ -38,9 +38,9 @@
                 <td><%= image_tag(matchup.home_logo_element, class: "small-logo")%></td>
                 <td><%= matchup.home_line %></td>
                 <td><%= matchup.home_detail %></td>
-                <td><%= matchup.closed? %></td>
+                <td><%= matchup.closed?.to_s.capitalize %></td>
                 <td><%= matchup.pacific_time_display %></td>
-                <td>Pending</td>
+                <td><%= matchup.result.capitalize %></td>
                 <td><%= link_to 'Edit', edit_matchup_path(matchup)%></td>
                 <td><%= link_to 'Delete', matchup, method: :delete %></td>
               </tr>
@@ -98,9 +98,9 @@
                 <td><%= pick.id %></td>
                 <td><%= pick.matchup.title %></th>
                 <td><%= pick.user.username %></td>
-                <td><%= pick.lock %></td>
+                <td><%= pick.lock.to_s.capitalize %></td>
                 <td><%= image_tag(pick.pick_logo, class: "small-logo")%></td>
-                <td>Pending</td>
+                <td><%= pick.win?.to_s.capitalize %></td>
               </tr>
             <% end %>
           </tbody>

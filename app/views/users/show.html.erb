@@ -18,6 +18,7 @@
             <li class="list-group-item"><strong>Admin?:</strong> Yes </li>
           <% end %>
         </ul>
+        <%= link_to "Edit Profile", edit_user_registration_path %>
       </div>
     </div>
   </div>
@@ -32,12 +33,24 @@
          <div class="row">
           <div class="col-md-12">
             <div class="card">
-              <div class="card_left">
-                <img class="" src=<%= pick.matchup.away_picture %>/>
-                <% if pick.lock %>
-                  <span class="glyphicon ion-ios-locked"></span>
-                <% end %>
+              <% if pick.loss? %>
+              <div class="grey-out">
+              <% end %>
+                <div class="card_left">
+                  <img class="" src=<%= pick.matchup.away_picture %>/>
+                  <% if pick.lock %>
+                    <span class="glyphicon ion-ios-locked"></span>
+                  <% end %>
+                  <% if pick.win? %>
+                    <span class="glyphicon ion-star"></span>
+                  <% end %>
+                  <% if pick.loss? %>
+                    <span class="glyphicon ion-close-circled"></span>
+                  <% end %>
+                </div>
+              <% if pick.loss? %>
               </div>
+              <% end %>
               <div class="card_right">
                 <div class="container-fluid right-con">
                   <div class="row row-no-padding row-one">
@@ -86,12 +99,24 @@
         <div class="row">
           <div class="col-md-12">
             <div class="card">
+              <% if pick.loss? %>
+              <div class="grey-out">
+              <% end %>
               <div class="card_left">
                   <img class="" src=<%= pick.matchup.home_picture %>/>
                   <% if pick.lock %>
                     <span class="glyphicon ion-ios-locked"></span>
                   <% end %>
+                  <% if pick.win? %>
+                    <span class="glyphicon ion-star"></span>
+                  <% end %>
+                  <% if pick.loss? %>
+                    <span class="glyphicon ion-close-circled"></span>
+                  <% end %>
               </div>
+              <% if pick.loss? %>
+              </div>
+              <% end %>
               <div class="card_right">
                 <div class="container-fluid right-con">
                   <div class="row row-no-padding row-one">
@@ -110,11 +135,17 @@
                   <div class="row row-no-padding row-three">
                     <div class="col-sm-6 btns">
                       <% unless pick.closed? %>
-                         <%= link_to pick, method: :delete do %>
-                            <button class="delete-pick cool-btn">
-                              Delete Pick
-                            </button>
-                          <% end %>
+                        <%= link_to pick, method: :delete do %>
+                          <button class="delete-pick  cool-btn">
+                            Delete Pick
+                          </button>
+                        <% end %>
+                      <% else %>
+                        <div class="cool-div">
+                          <div class="status">
+                            <%= pick.result %>
+                          </div>
+                        </div>
                       <% end %>
                     </div>
                     <div class="col-sm-6 btns">

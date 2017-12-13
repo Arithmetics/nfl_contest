@@ -149,7 +149,10 @@
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
 
-
+.grey-out {
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
 
 .card {
   width:100%;
@@ -168,15 +171,30 @@
     float:left;
     overflow:hidden;
     background:transparent;
-
-     .glyphicon {
+     .ion-ios-locked {
         position: absolute;
         top: 0px;
-        left: 25px;
+        left: 32px;
         font-size: 64px;
         color: white;
         z-index: 99;
     }
+    .ion-star {
+       position: absolute;
+       top: 100px;
+       left: 25px;
+       font-size: 64px;
+       color: white;
+       z-index: 99;
+   }
+   .ion-close-circled {
+      position: absolute;
+      top: 100px;
+      left: 25px;
+      font-size: 64px;
+      color: white;
+      z-index: 99;
+  }
     img {
       height:175px;
       min-width: 100%;

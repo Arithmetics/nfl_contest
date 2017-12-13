@@ -15,6 +15,7 @@
         <%= f.input :away_detail %>
         <%= f.input :away_picture %>
         <%= f.input :closing_time, label: 'Closing Time (UTC Timezone):' %>
+        <%= f.input :result,collection: ["pending", "away", "home"] %>
         <%= f.button :submit %>
       <% end %>
     </div>

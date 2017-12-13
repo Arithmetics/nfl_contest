@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171212010224) do
+ActiveRecord::Schema.define(version: 20171213205330) do
 
   create_table "matchups", force: :cascade do |t|
     t.string "away_team"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20171212010224) do
     t.string "away_picture"
     t.datetime "closing_time"
     t.string "title"
+    t.string "result", default: "pending"
   end
 
   create_table "picks", force: :cascade do |t|

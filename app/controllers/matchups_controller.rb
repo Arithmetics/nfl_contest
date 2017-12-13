@@ -14,7 +14,7 @@ class MatchupsController < ApplicationController
     @matchup = Matchup.new(matchup_params)
     if @matchup.save
       flash[:success] = "Matchup Created"
-      redirect_to root_url
+      redirect_to request.referer || root_url
     else
       flash.now[:danger] = "Issue with form"
       render 'new'
@@ -25,7 +25,7 @@ class MatchupsController < ApplicationController
     @matchup = Matchup.find(params[:id])
     if @matchup.update_attributes(matchup_params)
       flash[:success] = "Matchup edited"
-      redirect_to root_url
+      redirect_to request.referer|| root_url
     else
       flash.now[:danger] = "Issue with form"
       render 'edit'
@@ -47,7 +47,7 @@ class MatchupsController < ApplicationController
   def matchup_params
     params.require(:matchup).permit(:title,:home_team,:away_team,:home_line,:away_line,
                                     :home_detail,:away_detail,:home_picture,
-                                    :away_picture,:closing_time)
+                                    :away_picture,:closing_time,:result)
   end
 
   def admin_user

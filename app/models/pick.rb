@@ -6,10 +6,31 @@ class Pick < ApplicationRecord
   belongs_to :user
   belongs_to :matchup
 
+  def win?
+    if self.matchup.result == self.choice
+      true
+    else
+      false
+    end
+  end
+
+  def loss?
+    if self.matchup.result != "pending" && self.matchup.result != self.choice
+      true
+    else
+      false
+    end
+  end
 
   def status
     if self.closed?
-      "Closed"
+      if self.win?
+        "Finalized"
+      elsif self.loss?
+        "Finalized"
+      else
+        "Closed"
+      end
     else
       "Open until gametime"
     end
@@ -24,7 +45,13 @@ class Pick < ApplicationRecord
   end
 
   def result
-    "Pending result"
+    if self.win?
+      "Correct Pick!"
+    elsif self.loss?
+      "Incorrect Pick!"
+    else
+      "Result Pending"
+    end
   end
 
   def pick_logo
