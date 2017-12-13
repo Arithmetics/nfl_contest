@@ -31,12 +31,8 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
             <li>
-              <a class="navbar-brand on-top" href= <%= root_path %> >
-                <i class="ionicons ion-ios-americanfootball-outline"></i>
-                NFL ATS Challenge 2017
-              </a>
+              <%= link_to '<i class="ionicons ion-ios-americanfootball-outline"></i> NFL ATS Challenge 2017'.html_safe, root_path %>
             </li>
-            <br>
             <% if user_signed_in? %>
               <li><%= link_to "My Profile", current_user %></li>
               <li><%= link_to "Leaderboard", users_path %></li>
