@@ -7,7 +7,11 @@
         <h1> <%= @user.username %>'s Profile </h1>
       </div>
       <div class="panel-body">
-        <%= image_tag @user.avatar.small.url, class: "img-responsive profile-pic center-block" if @user.avatar? %>
+        <% if @user.avatar? %>
+          <%= image_tag @user.avatar.small.url, class: "img-responsive profile-pic center-block"%>
+        <% else %>
+          <%= image_tag("default_avatar.jpg", class: "img-responsive profile-pic center-block") %>
+        <% end %>
         <br >
         <ul class="list-group">
           <li class="list-group-item"><strong>Real Name:</strong> <%= @user.full_name %> </li>
