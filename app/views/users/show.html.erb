@@ -28,9 +28,11 @@
   </div>
 
   <!-- Status Readers-->
-  <%= render 'status_board' %>
+  <% if @user == current_user %>
+    <%= render 'status_board' %>
+  <% end %>
 
-  <!-- Pick Cards -->
+  <!-- Pick Cards  -->
   <div class="col-md-8 col-sm-12">
     <% @picks.each do |pick| %>
       <% if pick.choice == "away" %>
@@ -168,6 +170,6 @@
       <% end %>
     <% end %>
   </div>
-
+  <!-- End Pick Cards -->
 
 </div>
