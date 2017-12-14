@@ -25,7 +25,7 @@ class MatchupsController < ApplicationController
     @matchup = Matchup.find(params[:id])
     if @matchup.update_attributes(matchup_params)
       flash[:success] = "Matchup edited"
-      redirect_to request.referer|| root_url
+      redirect_to admin_path
     else
       flash.now[:danger] = "Issue with form"
       render 'edit'

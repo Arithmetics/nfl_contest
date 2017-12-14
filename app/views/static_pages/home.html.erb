@@ -64,14 +64,14 @@
                 <!-- Pick Buttons -->
                 <div class="row row-no-padding row-three">
                   <div class="col-sm-6 btns">
-                     <%= link_to picks_path(pick: {matchup_id: matchup.id, lock: false, choice: "away"}), method: :post do %>
+                     <%= link_to( picks_path(pick: {matchup_id: matchup.id, lock: false, choice: "away"}), method: :post, remote: true, class: "create_pick" )do %>
                         <button class= 'cool-btn <%= "#{matchup.away_team_class}" %>' >
                           Pick
                         </button>
                       <% end %>
                   </div>
                   <div class="col-sm-6 btns">
-                    <%= link_to picks_path(pick: {matchup_id: matchup.id, lock: true, choice: "away"}), method: :post do %>
+                    <%= link_to picks_path(pick: {matchup_id: matchup.id, lock: true, choice: "away"}), method: :post, remote: true, class: "create_pick"  do %>
                        <button class= 'cool-btn <%= "#{matchup.away_team_class}" %>'>
                          Lock Pick
                        </button>
@@ -111,14 +111,14 @@
                 <!-- Pick Buttons -->
                 <div class="row row-no-padding row-three">
                   <div class="col-sm-6 btns">
-                     <%= link_to picks_path(pick: {matchup_id: matchup.id, lock: false, choice: "home"}), method: :post do %>
+                     <%= link_to picks_path(pick: {matchup_id: matchup.id, lock: false, choice: "home"}), method: :post, remote: true, class: "create_pick"  do %>
                         <button class= 'cool-btn <%= "#{matchup.home_team_class}" %>'>
                           Pick
                         </button>
                       <% end %>
                   </div>
                   <div class="col-sm-6 btns">
-                    <%= link_to picks_path(pick: {matchup_id: matchup.id, lock: true, choice: "home"}), method: :post do %>
+                    <%= link_to picks_path(pick: {matchup_id: matchup.id, lock: true, choice: "home"}), method: :post, remote: true, class: "create_pick"  do %>
                        <button class= 'cool-btn <%= "#{matchup.home_team_class}" %>'>
                          Lock Pick
                        </button>

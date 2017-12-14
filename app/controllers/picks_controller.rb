@@ -2,14 +2,19 @@ class PicksController < ApplicationController
   before_action :check_if_matchup_closed, :enough_locks?,  only: :create
   before_action :correct_user, only: :destroy
   before_action :check_if_pick_closed, only: :destroy
-  before_action :regain_lock, only: :destroy
+
+
 
 
 
   def create
     if @pick.save
       flash[:success] = "Pick made!"
-      redirect_to root_url
+      respond_to do |format|
+        format.html {redirect_to root_url}
+        format.json { head :no_content }
+        format.js { render layout: false }
+      end
     else
       flash.now[:danger] = "Problem with that pick"
       redirect_to root_url
@@ -18,8 +23,13 @@ class PicksController < ApplicationController
 
   def destroy
     @pick.destroy
+    regain_lock
     flash[:success] = "Pick deleted"
-    redirect_to request.referrer || root_url
+    respond_to do |format|
+      format.html {redirect_to current_user}
+      format.json { head :no_content }
+      format.js { render layout: false }
+    end
   end
 
   def index

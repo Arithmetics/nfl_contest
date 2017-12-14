@@ -3,21 +3,21 @@
   <div class="row status-board">
 
     <div class="col-md-4 col-sm-12">
-      <li class="list-group-item">
+      <li class="list-group-item" id="user_score">
         Points Scored/Leader: <span class="badge">
           <%= current_user.score %> / <%= User.top_score %>
         </span>
       </li>
     </div>
     <div class="col-md-4 col-sm-12">
-      <li class="list-group-item">
+      <li class="list-group-item" id="user_unpicked">
         Unpicked Games: <span class="badge">
           <%= current_user.unpicked_games %>
         </span>
       </li>
     </div>
     <div class="col-md-4 col-sm-12">
-      <li class="list-group-item">
+      <li class="list-group-item" id="user_lock_points">
         Locks Remaining: <span class="badge">
           <%= current_user.lock_points %>
         </span>

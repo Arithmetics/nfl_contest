@@ -29,7 +29,9 @@
 
   <!-- Status Readers-->
   <% if @user == current_user %>
-    <%= render 'status_board' %>
+
+      <%= render 'status_board' %>
+
   <% end %>
 
   <!-- Pick Cards  -->
@@ -75,7 +77,7 @@
                   <div class="row row-no-padding row-three">
                     <div class="col-sm-6 btns">
                       <% unless pick.closed? %>
-                        <%= link_to pick, method: :delete do %>
+                        <%= link_to(pick, method: :delete, remote: true, class: "delete_pick") do %>
                           <button class="delete-pick  cool-btn">
                             Delete Pick
                           </button>
@@ -141,7 +143,7 @@
                   <div class="row row-no-padding row-three">
                     <div class="col-sm-6 btns">
                       <% unless pick.closed? %>
-                        <%= link_to pick, method: :delete do %>
+                        <%= link_to(pick, method: :delete, remote: true, class: "delete_pick") do %>
                           <button class="delete-pick  cool-btn">
                             Delete Pick
                           </button>
