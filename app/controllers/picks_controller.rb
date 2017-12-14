@@ -4,9 +4,6 @@ class PicksController < ApplicationController
   before_action :check_if_pick_closed, only: :destroy
 
 
-
-
-
   def create
     if @pick.save
       subtract_lock
@@ -14,7 +11,7 @@ class PicksController < ApplicationController
       respond_to do |format|
         format.html {redirect_to root_url}
         format.json { head :no_content }
-        format.js { render layout: false }
+        format.js {}
       end
     else
       flash.now[:danger] = "Problem with that pick"
@@ -29,7 +26,7 @@ class PicksController < ApplicationController
     respond_to do |format|
       format.html {redirect_to current_user}
       format.json { head :no_content }
-      format.js { render layout: false }
+      format.js {}
     end
   end
 
