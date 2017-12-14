@@ -1,5 +1,6 @@
 $('.create_pick').bind('ajax:success', function() {
    $(this).closest(".matchup").fadeOut();
+   $(this).addClass('disabled');
    $('#user_lock_points').html('Locks Remaining: <span class="badge"><%= current_user.lock_points %></span>');
    $('#user_unpicked').html('Unpicked Games: <span class="badge"><%= current_user.unpicked_games %></span>');
 });
