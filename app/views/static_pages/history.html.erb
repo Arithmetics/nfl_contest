@@ -1,1 +1,22 @@
-<h1>Contest History</h1>
+<h3>Contest History</h3>
+
+<table class="table">
+  <thead>
+    <th>Year</th>
+    <th>Winner</th>
+    <th>Correct Picks</th>
+    <th>Winnings</th>
+
+  </thead>
+  <tbody>
+    <% @histories.each do |history| %>
+      <tr>
+        <td><%= history.year %></td>
+        <td><%= history.winner %></td>
+        <td><%= history.correct_picks %>/11</td>
+        <td>$<%= history.winnings %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>

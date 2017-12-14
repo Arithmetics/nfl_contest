@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  year: 1
+  winner: MyString
+  correct_picks: 1
+  winnings: 1
+
+two:
+  year: 1
+  winner: MyString
+  correct_picks: 1
+  winnings: 1

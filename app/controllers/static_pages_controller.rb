@@ -21,7 +21,7 @@ class StaticPagesController < ApplicationController
   end
 
   def history
-
+    @histories = History.all
   end
 
   private ##################################################3

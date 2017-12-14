@@ -58,3 +58,39 @@ Matchup.create(
   away_picture: "https://i.imgur.com/57SSvHX.jpg",
   closing_time: 3.weeks.from_now
 )
+
+
+History.create(
+  year: 2016,
+  winner: "David Wendt",
+  correct_picks: 10,
+  winnings: 240
+)
+
+History.create(
+  year: 2015,
+  winner: "David Wendt",
+  correct_picks: 7,
+  winnings: 180
+)
+
+History.create(
+  year: 2014,
+  winner: "Houman Mitorabi",
+  correct_picks: 8,
+  winnings: 100
+)
+
+History.create(
+  year: 2013,
+  winner: "Erik Gunderson",
+  correct_picks: 8,
+  winnings: 80
+)
+
+History.create(
+  year: 2012,
+  winner: "Erik Gunderson",
+  correct_picks: 7,
+  winnings: 70
+)
