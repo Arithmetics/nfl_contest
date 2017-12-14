@@ -9,6 +9,7 @@ class PicksController < ApplicationController
 
   def create
     if @pick.save
+      subtract_lock
       flash[:success] = "Pick made!"
       respond_to do |format|
         format.html {redirect_to root_url}
@@ -73,11 +74,15 @@ class PicksController < ApplicationController
         unless current_user.lock_points > 0
           flash[:danger] = "You are out of locks!"
           redirect_to root_url
-        else
-          points = ((current_user.lock_points) - 1)
-          current_user.update_attribute(:lock_points, points)
         end
       end
+    end
+  end
+
+  def subtract_lock
+    if @pick.lock
+      points = ((current_user.lock_points) - 1)
+      current_user.update_attribute(:lock_points, points)
     end
   end
 
