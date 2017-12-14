@@ -8,15 +8,17 @@
   </div>
 </div>
 
-<% if current_user.unpicked_games == 0 %>
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="well">
-        <h3>You have picked all open games.</h3>
-        <h4>Go to <%=link_to "your profile", current_user %> to edit picks</h4>
+<div id="picked_all">
+  <% if current_user.unpicked_games == 0 %>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="well">
+          <h3>You have picked all open games.</h3>
+          <h4>Go to <%=link_to "your profile", current_user %> to edit picks</h4>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
 
 <% @matchups.each do |matchup| %>
   <% unless current_user.picked_matchup?(matchup) %>

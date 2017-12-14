@@ -3,4 +3,5 @@ $('.create_pick').bind('ajax:success', function() {
    $(this).addClass('disabled');
    $('#user_lock_points').html('Locks Remaining: <span class="badge"><%= current_user.lock_points %></span>');
    $('#user_unpicked').html('Unpicked Games: <span class="badge"><%= current_user.unpicked_games %></span>');
+   $("#picked_all").html('<% if current_user.unpicked_games == 0 %><div class="row"><div class="col-xs-12"><div class="well"><h3>You have picked all open games.</h3><h4>Go to <%=link_to "your profile", current_user %> to edit picks</h4></div></div><% end %>');
 });

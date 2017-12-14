@@ -3,4 +3,5 @@ $('.delete_pick').bind('ajax:success', function() {
    $(this).addClass('disabled');
    $('#user_lock_points').html('Locks Remaining: <span class="badge"><%= current_user.lock_points %></span>');
    $('#user_unpicked').html('Unpicked Games: <span class="badge"><%= current_user.unpicked_games %></span>');
+   $("#unpicked").html('<% if current_user.unpicked_games > 0 %><div class="col-md-8 col-sm-12"><div class="well"> <h3>You have unpicked games! </h3><h4>Go to <%=link_to "Home", root_url %> to make picks</h4></div><% end %>');
 });

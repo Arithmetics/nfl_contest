@@ -34,6 +34,17 @@
 
   <% end %>
 
+  <!-- Go make picks -->
+  <div id="unpicked">
+    <% if current_user.unpicked_games > 0 %>
+        <div class="col-md-8 col-sm-12">
+          <div class="well">
+            <h3>You have unpicked games! </h3>
+            <h4>Go to <%=link_to "Home", root_url %> to make picks</h4>
+        </div>
+    <% end %>
+  </div>
+
   <!-- Pick Cards  -->
   <div class="col-md-8 col-sm-12">
     <% @picks.each do |pick| %>
