@@ -5,7 +5,7 @@ class StaticPagesController < ApplicationController
 
 
   def home
-    @matchups = Matchup.open?
+    @matchups = Matchup.open?.sort{ |x| x.closing_time }
   end
 
 
