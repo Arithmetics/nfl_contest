@@ -88,5 +88,13 @@ class Matchup < ApplicationRecord
     "#{self.away_team.downcase.gsub(" ", "-")}-logo-vector.png"
   end
 
+  def winning_picks
+    self.picks.select { |pick| pick.win? }
+  end
+
+  def losing_picks
+    self.picks.select { |pick| pick.loss? }
+  end
+
 
 end

@@ -39,6 +39,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 gem 'simple_form'
+gem 'chartkick'
+gem 'groupdate'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record

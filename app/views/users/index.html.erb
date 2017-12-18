@@ -1,35 +1,85 @@
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#home">Leaderboard</a></li>
+  <li><a data-toggle="tab" href="#menu1">Graphs</a></li>
+</ul>
+
+<div class="tab-content">
+  <div id="home" class="tab-pane fade in active">
 
 
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">
+        <h2> Leaderboard </h2>
+      </div>
 
-<div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading">
-    <h2> Leaderboard </h2>
+      <table class="table">
+        <thead>
+          <th>Position</th>
+          <th>Username</th>
+          <th>Score</th>
+          <th>Locks Left</th>
+        </thead>
+        <tbody>
+          <% x = 1 %>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= x %> </th>
+              <td><%= link_to user.username, user %>
+                  <% user.championships.times do %>
+                    <span class="ion-trophy"></span>
+                  <% end %>
+              </td>
+              <td><%= user.score %></td>
+              <td><%= user.lock_points %></td>
+            </tr>
+            <% x += 1 %>
+          <% end %>
+        </tbody>
+
+      </table>
+    </div>
+
   </div>
 
-  <table class="table">
-    <thead>
-      <th>Position</th>
-      <th>Username</th>
-      <th>Score</th>
-      <th>Locks Left</th>
-    </thead>
-    <tbody>
-      <% x = 1 %>
-      <% @users.each do |user| %>
-        <tr>
-          <td><%= x %> </th>
-          <td><%= link_to user.username, user %>
-              <% user.championships.times do %>
-                <span class="ion-trophy"></span>
-              <% end %>
-          </td>
-          <td><%= user.score %></td>
-          <td><%= user.lock_points %></td>
-        </tr>
-        <% x += 1 %>
-      <% end %>
-    </tbody>
+  <div id="menu1" class="tab-pane fade">
 
-  </table>
+
+    <h1> Results: </h1>
+    <br>
+
+    <% @matchups.each do |matchup| %>
+
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4><%= matchup.title %>:</h4>
+              <h5>
+                <%= image_tag(matchup.away_logo_element, class: "small-logo")%>
+                ( <%= matchup.away_line_style %> )
+                  @
+                 <%= image_tag(matchup.home_logo_element, class: "small-logo")%>
+                 ( <%= matchup.home_line_style %> )
+               </h5>
+            </div>
+            <div class="panel-body">
+              <%= column_chart [
+                    ["Correct Picks", matchup.winning_picks.count],
+                    ["Incorrect Picks", matchup.losing_picks.count]
+                ],
+                library: {
+                  vAxis: {
+                          gridlines: {count: [matchup.winning_picks.count,matchup.losing_picks.count].max + 1}
+                  }
+                }
+               %>
+         </div>
+       </div>
+
+
+    <% end %>
+
+
+  </div>
+
 </div>
