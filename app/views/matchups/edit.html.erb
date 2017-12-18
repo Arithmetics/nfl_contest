@@ -7,8 +7,8 @@
       <%= simple_form_for(@matchup, html: { class: 'form-horizontal' }, method: :put) do |f| %>
         <%= f.input :title,collection: ["Thursday Night, Saturday Morning",
                                           "Saturday Afternoon","Saturday Night",
-                                          "Sunday Morning", "Sunday Night"
-                                          "Sunday Afternoon", "Monday Night"] %>
+                                          "Sunday Morning", "Sunday Afternoon",
+                                          "Sunday Night", "Monday Night"] %>
         <%= f.input :away_team,collection: @teams %>
         <%= f.input :away_line %>
         <%= f.input :away_detail %>

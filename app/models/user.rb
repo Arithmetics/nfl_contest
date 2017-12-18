@@ -43,7 +43,9 @@ class User < ApplicationRecord
       if self.picks.find_by(matchup_id: matchup.id)
         x += 0
       else
-        x += 1
+        if !matchup.closed?
+          x += 1
+        end
       end
     end
     x
