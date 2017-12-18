@@ -41,6 +41,7 @@ gem 'fog'
 gem 'simple_form'
 gem 'chartkick'
 gem 'groupdate'
+gem 'possessive'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
