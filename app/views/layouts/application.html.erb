@@ -31,17 +31,50 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
             <li>
-              <%= link_to '<i class="ionicons ion-ios-americanfootball-outline"></i> NFL ATS Challenge 2017'.html_safe, root_path %>
+              <%= link_to '<i class="ionicons ion-ios-americanfootball-outline"></i> NFL ATS Challenge'.html_safe, root_path %>
             </li>
             <% if user_signed_in? %>
-              <li><%= link_to "My Profile", current_user %></li>
-              <li><%= link_to "Leaderboard", users_path %></li>
-              <li><%= link_to "Rules", '/rules' %></li>
+
+              <li>
+                <%= link_to current_user do %>
+                  <span class="ion-person"> Profile</span>
+                <% end %>
+              </li>
+
+              <li>
+                <%= link_to users_path do %>
+                  <span class="ion-android-menu"> Leaderboard</span>
+                <% end %>
+              </li>
+
+              <li>
+                <%= link_to '/rules' do %>
+                  <span class="ion-ios-bookmarks"> Rules</span>
+                <% end %>
+              </li>
+
               <% if current_user.admin %>
-                <li><%= link_to "Admin", '/admin' %></li>
+
+              <li>
+                <%= link_to "/admin"  do %>
+                  <span class="ion-erlenmeyer-flask"> Admin</span>
+                <% end %>
+              </li>
+
               <% end %>
-              <li><%= link_to "History", history_path  %></li>
-              <li><%= link_to "Log Out", destroy_user_session_path, method: :delete  %></li>
+
+              <li>
+                <%= link_to history_path  do %>
+                  <span class="ion-ios-book"> History</span>
+                <% end %>
+              </li>
+
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  <span class="ion-log-out"> Log Out</span>
+                <% end %>
+              </li>
+
             <% else %>
 
             <% end %>

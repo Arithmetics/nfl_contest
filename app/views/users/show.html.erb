@@ -16,13 +16,17 @@
         <ul class="list-group">
           <li class="list-group-item"><strong>Real Name:</strong> <%= @user.full_name %> </li>
           <li class="list-group-item"><strong>Email:</strong> <%= @user.email %> </li>
-          <li class="list-group-item"><strong>Championships:</strong> <%= @user.championships %> </li>
+          <li class="list-group-item"><strong>Championships:</strong><% @user.championships.times do %>
+            <span class="ion-trophy"></span>
+          <% end %></li>
           <li class="list-group-item"><strong>Last sign in:</strong> <%= @user.last_sign_in_at %> </li>
           <% if @user.admin %>
             <li class="list-group-item"><strong>Admin?:</strong> Yes </li>
           <% end %>
         </ul>
-        <%= link_to "Edit Profile", edit_user_registration_path %>
+        <% if @user == current_user %>
+          <%= link_to "Edit Profile", edit_user_registration_path %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -35,15 +39,18 @@
   <% end %>
 
   <!-- Go make picks -->
-  <div id="unpicked">
-    <% if current_user.unpicked_games > 0 %>
-        <div class="col-md-8 col-sm-12">
-          <div class="well">
-            <h3>You have unpicked games! </h3>
-            <h4>Go to <%=link_to "Home", root_url %> to make picks</h4>
-        </div>
-    <% end %>
-  </div>
+  <% if current_user == @user %>
+    <div id="unpicked">
+      <% if current_user.unpicked_games > 0 %>
+          <div class="col-md-8 col-sm-12">
+            <div class="well">
+              <h3>You have unpicked games! </h3>
+              <h4>Go to <%=link_to "Home", root_url %> to make picks</h4>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  <% end %>
 
   <!-- Pick Cards  -->
   <div class="col-md-8 col-sm-12">

@@ -3,10 +3,12 @@ class MatchupsController < ApplicationController
   before_action :admin_user, only: [:new, :edit, :update, :create, :destroy]
 
   def new
+    @teams = Matchup.teams
     @matchup = Matchup.new
   end
 
   def edit
+    @teams = Matchup.teams 
     @matchup = Matchup.find(params[:id])
   end
 

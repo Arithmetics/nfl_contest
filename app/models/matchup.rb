@@ -14,6 +14,20 @@ class Matchup < ApplicationRecord
     self.all.select {|matchup| matchup.closed? == false }
   end
 
+  def self.teams
+    ["New England Patriots","Washington Redskins","Dallas Cowboys",
+      "Philadelphia Eagles","Oakland Raiders","Los Angeles Chargers",
+      "Houston Texans","Tennessee Titans","Jacksonville Jaguars",
+      "Cleveland Browns","Cincinnati Bengals","Baltimore Ravens",
+      "San Francisco 49ers","Arizona Cardinals","Seattle Seahawks",
+      "Los Angeles Rams","Tampa Bay Buccaneers","Atlanta Falcons",
+      "Carolina Panthers","New Orleans Saints","Chicago Bears",
+      "Green Bay Packers","Detroit Lions","Minnesota Vikings","New York Giants",
+      "Denver Broncos","Kansas City Chiefs","Indianapolis Colts",
+      "Pittsburgh Steelers","Miami Dolphins","New York Jets",
+      "Buffalo Bills"].sort {|x,y| x<=>y}
+  end
+
   def closed?
     if self.closing_time < Time.now
       true
