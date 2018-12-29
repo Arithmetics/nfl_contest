@@ -7,6 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+User.create!(username: "BrockTillotson",
+  full_name: "Brock Tillotson",
+  email: "brock.m.tillotson@gmail.com",
+  password: "password",
+  password_confirmation: "password",
+  admin: true,
+  lock_points: 5,
+  championships: 10)
+
 Matchup.create(
   title: "Wildcard Game #1",
   home_team: "Jacksonville Jaguars",
