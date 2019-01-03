@@ -18,6 +18,7 @@
           <th>Position</th>
           <th>Username</th>
           <th>Score</th>
+          <th>Picks Made</th>
           <th>Locks Left</th>
         </thead>
         <tbody>
@@ -31,6 +32,7 @@
                   <% end %>
               </td>
               <td><%= user.score %></td>
+              <th><%= user.picks.count %></td>
               <td><%= user.lock_points %></td>
             </tr>
             <% x += 1 %>
