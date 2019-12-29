@@ -1,18 +1,13 @@
 class StaticPagesController < ApplicationController
-
   before_action :admin_user, only: [:admin]
   helper_method :sort_column, :sort_direction
 
-
   def home
-    @matchups = Matchup.open?.sort{ |x| x.closing_time }
+    @matchups = Matchup.open?.sort { |x| x.closing_time }
   end
-
 
   def rules
-
   end
-
 
   def admin
     @users = User.all
@@ -21,7 +16,7 @@ class StaticPagesController < ApplicationController
   end
 
   def history
-    @histories = History.all
+    @histories = History.all.order(year: :desc)
   end
 
   private ##################################################3
@@ -30,9 +25,8 @@ class StaticPagesController < ApplicationController
     redirect_to(root_url) unless current_user.admin
   end
 
-
   def sortable_columns
-    ["user_id", "lock", "choice", "result" ]
+    ["user_id", "lock", "choice", "result"]
   end
 
   def sort_column
@@ -42,5 +36,4 @@ class StaticPagesController < ApplicationController
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
-
 end
