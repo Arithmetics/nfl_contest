@@ -13,7 +13,6 @@
 
 //= require jquery
 //= require jquery_ujs
-//= require chartkick
 //= require twitter/bootstrap
 //= require jquery.Jcrop
 //= require turbolinks

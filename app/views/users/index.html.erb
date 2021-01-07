@@ -47,41 +47,6 @@
   <div id="menu1" class="tab-pane fade">
 
 
-    <h1> Results: </h1>
-    <br>
-
-    <% @matchups.each do |matchup| %>
-
-
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4><%= matchup.title %>:</h4>
-              <h5>
-                <%= image_tag(matchup.away_logo_element, class: "small-logo")%>
-                ( <%= matchup.away_line_style %> )
-                  @
-                 <%= image_tag(matchup.home_logo_element, class: "small-logo")%>
-                 ( <%= matchup.home_line_style %> )
-               </h5>
-            </div>
-            <div class="panel-body">
-              <%= column_chart [
-                    ["Correct Picks", matchup.winning_picks.count],
-                    ["Incorrect Picks", matchup.losing_picks.count]
-                ],
-                library: {
-                  vAxis: {
-                          gridlines: {count: [matchup.winning_picks.count,matchup.losing_picks.count].max + 1}
-                  }
-                }
-               %>
-         </div>
-       </div>
-
-
-    <% end %>
-
-
   </div>
 
 </div>
